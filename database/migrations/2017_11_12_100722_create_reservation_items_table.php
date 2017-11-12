@@ -15,7 +15,7 @@ class CreateReservationItemsTable extends Migration
     {
         Schema::create('reservation_items', function (Blueprint $table) {
             $table->increments('id_ri');
-            $table->decimal('price_oi',11,2);
+            $table->decimal('price_ri',11,2);
             $table->integer('bicycle_id')->unsigned();
             $table->foreign('bicycle_id')
                   ->references('id_bicycle')

@@ -4,20 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Person extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'persons';
 
-	protected $fillable = ['id_category', 'desc_category', 'status_category', 'slug_category'];
+	protected $fillable = [
+		'id_person', 'rut_person', 'name_person', 'last_name_person', 'birth_date_person', 'phone_person', 'address_person',
+	];
 
-	public $timestamps = false;
-    
 
-     public function stores()
+     public function users()
     {
-        return $this->belongsToMany('App\Store');
+        return $this->hasMany('App\User');
     }
-
 
 }
 

@@ -4,20 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Brand extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'brands';
 
-	protected $fillable = ['id_category', 'desc_category', 'status_category', 'slug_category'];
+	protected $fillable = [
+		'id_brand', 'name_brand',
+	];
 
 	public $timestamps = false;
     
 
-     public function stores()
+    public function models()
     {
-        return $this->belongsToMany('App\Store');
+        return $this->hasMany('App\Model');
     }
-
 
 }
 

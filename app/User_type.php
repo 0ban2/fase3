@@ -14,14 +14,10 @@ class User_type extends Model
 
 	public $timestamps = false;
     
+       
     public function users()
     {
         return $this->hasMany('App\User');
     }
 
-    
-    public function user_types()
-    {
-        return $this->belongsTo('App\User_type');
-    }
 }

@@ -4,18 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Reservation_item extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'reservation_items';
 
-	protected $fillable = ['id_category', 'desc_category', 'status_category', 'slug_category'];
+	protected $fillable = [
+		'id_ri', 'price_ri', 'bicycle_id', 'reservation_id',
+	];
 
-	public $timestamps = false;
-    
-
-     public function stores()
+    public function reservations()
     {
-        return $this->belongsToMany('App\Store');
+        return $this->belongsTo('App\Reservation');
+    }
+
+
+    public function bicycles()
+    {
+        return $this->belongsTo('App\Bicycle');
     }
 
 

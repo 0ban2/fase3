@@ -4,18 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Bicycle_status extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'bicycle_status';
 
-	protected $fillable = ['id_category', 'desc_category', 'status_category', 'slug_category'];
+	protected $fillable = [
+		'id_bs', 'desc_bs',
+	];
 
 	public $timestamps = false;
     
 
-     public function stores()
+    public function bicycles()
     {
-        return $this->belongsToMany('App\Store');
+        return $this->hasMany('App\Bicycle');
     }
 
 
