@@ -18,7 +18,7 @@ class CreateModelsTable extends Migration
             $table->string('desc_model');
             $table->integer('brand_id')->unsigned();
             $table->foreign('brand_id')
-                  ->references('id')
+                  ->references('id_brand')
                   ->on('brands');
         });
     }

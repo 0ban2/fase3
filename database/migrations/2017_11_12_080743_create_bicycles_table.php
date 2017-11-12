@@ -16,6 +16,7 @@ class CreateBicyclesTable extends Migration
         Schema::create('bicycles', function (Blueprint $table) {
             $table->increments('id_bicycle');
             $table->string('serie_bicycle', 100)->unique();
+            $table->string('image_bicycle', 255);
             $table->string('color_bicycle', 255);
             $table->decimal('price_bicycle', 11, 2);
             $table->string('slug_bicycle')->unique();

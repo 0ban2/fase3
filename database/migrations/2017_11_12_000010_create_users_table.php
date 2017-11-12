@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->foreign('ut_id')
                   ->references('id_ut')
                   ->on('user_types');
-            $table->boolean('status');
             $table->integer('person_id')->unsigned(); /*tipo de usuario*/
             $table->foreign('person_id')
                   ->references('id_person')
