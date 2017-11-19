@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')<</title>
+    <title>@yield('title')</title>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" />
@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fancybox.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/black.css') }}" />
     <link rel="shortcut icon" href="{{ asset('assets/media/page/favicon.ico') }}" />
+
 </head>
 <body>
 

@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Redirect;
+
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,6 +39,12 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+
+    public function index()
+    {
+        return view('auth.register');
     }
 
     /**
@@ -54,18 +62,47 @@ class RegisterController extends Controller
         ]);
     }
 
+    
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        /*$dataaddress = [
+            'address_ua'   => $data['address_ua'],
+            'number_ua'    => $data['number_ua'],
+            'tower_ua'     => $data['tower_ua'],
+            'apartment_ua' => $data['apartment_ua'],
+            'city_id'      => $data['city_id']
+        ];
+
+        $address = User_address::create($dataaddress);
+
+        $datauser = [
+            'rut'           => $data['rut'],
+            'name'          => $data['name'],
+            'last_name'     => $data['last_name'],
+            'birth_date'    => $data['birth_date'],
+            'email'         => $data['email'],
+            'phone'         => $data['phone'],
+            'gender_id'     => $data['gender_id'],
+            'type_user_id'  => 1,
+            'status'        => 0,
+            'addressua_id'    => $address->id
+        ];
+
+        $user = User::create($datauser);
+
+        $user = true;
+        $message = $user ? 'Sus datos fueron ingresados correctamente, gracias por registrarte en Puente Renta de Bicicletas!' : 'El usuario NO se pudo agregar!';
+        
+        return \Redirect::to('/')
+            ->with('message', $message);*/
+
+
     }
 }
+
